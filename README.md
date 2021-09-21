@@ -58,3 +58,28 @@ The following tutorial explains how to set up this project using PostgreSQL and 
 - If you want to edit a migration that has already been released but don't want to lose all the data, make a new migration instead. This is a more realistic flow for production apps: prod databases are never migrated down. We can migrate Heroku down freely only because there's no valuable data from customers in it. In this sense, Heroku is acting more like a staging environment than production.
 
 - If your fronted devs are interested in running the API locally, help them set up PostgreSQL & pgAdmin in their machines, and teach them how to run migrations in their local. This empowers them to (1) help you troubleshoot bugs, (2) obtain the latest code by simply doing `git pull` and (3) work with their own data, without it being wiped every time you roll back the Heroku db. Collaboration is more fun and direct, and you don't need to deploy as often.
+
+<!-- Water My plants 
+
+* Back End API RESTful Endpoints *
+
+| what you want to do: (request TYPE) http://example.com/api/endpoint |
+
+AUTHORIZATION
+login: (POST) request https://watermyplant6.herokuapp.com/api/auth/login
+
+register: (POST)  https://watermyplant6.herokuapp.com/api/auth/register
+
+
+INVENTORY
+get inventory of all your plants: (GET) https://watermyplant6.herokuapp.com/api/plants
+
+get plant by id: (GET) https://watermyplant6.herokuapp.com/api/plants/:id
+
+add plant: (POST) https://watermyplant6.herokuapp.com/api/plants
+
+update plant: (PUT) https://watermyplant6.herokuapp.com/api/plants/:id
+
+delete plant: (DELETE) https://watermyplant6.herokuapp.com/api/plants/:id
+
+-->
