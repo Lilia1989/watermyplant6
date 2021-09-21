@@ -22,3 +22,17 @@ describe('server.js', () => {
     expect(process.env.NODE_ENV).toBe('testing')
   })
 })
+
+describe('[POST] /register', () => {
+  it('returns a status 201 CREATED', async () => {
+    const res = await request(server).post('/register').send({name: 'lilia' })
+    expect(res.status).toBe(201)
+  })
+  it('returns newly created user', async () => {
+    const res = await request(server).post('/register').send({name: 'lilia'})
+    // console.log(res)
+    expect(res.body).toMatchObject({
+      id: 4, name: 'lilia'
+    })
+  })
+})

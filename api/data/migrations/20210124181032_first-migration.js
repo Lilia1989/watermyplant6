@@ -6,6 +6,23 @@ exports.up = async (knex) => {
       users.string('password', 200).notNullable()
       users.timestamps(false, true)
     })
+
+       // plants TABLE
+       .createTable('plants', table => {
+        table.increments('id')
+        table.string('species', 128).notNullable()
+        table.string('nick_name', 128).notNullable()
+        table.binary('image', 255)
+        table.decimal('h2o_frequency', 2, 1)
+        table
+          .integer('user_id')
+          .unsigned()
+          .notNullable()
+          .references('id')
+          .inTable('users')
+          .onDelete('CASCADE')
+          .onUpdate('CASCADE')
+      })
 }
 
 exports.down = async (knex) => {
