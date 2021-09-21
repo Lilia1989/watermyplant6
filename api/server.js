@@ -18,7 +18,7 @@ server.use('/api/users', usersRouter)
 
 
 server.get('/', (req, res) => {
-  res.status(200).send("<h1>Welcome to the Water My Plants API</h1>")
+  res.status(200).send("<h1>Welcome to Lilia's Water My Plants API</h1>")
 });
 
 server.use((err, req, res, next) => { // eslint-disable-line
