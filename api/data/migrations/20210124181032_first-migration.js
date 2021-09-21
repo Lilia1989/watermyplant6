@@ -9,24 +9,37 @@ exports.up = async (knex) => {
 
        // plants TABLE
        .createTable('plants', table => {
-        table.increments('id')
+        table.increments('plant_id')
         table.string('species', 128).notNullable()
         table.string('nick_name', 128).notNullable()
         table.binary('image', 255)
         table.decimal('h2o_frequency', 2, 1)
-        table
-          .integer('user_id')
-          .unsigned()
-          .notNullable()
-          .references('id')
-          .inTable('users')
-          .onDelete('CASCADE')
-          .onUpdate('CASCADE')
       })
+     // users_plants TABLE
+     .createTable('users_plants', table => {
+      table.increments('up_id')
+      table
+        .integer('user_id')
+        .unsigned()
+        .notNullable()
+        .references('user_id')
+        .inTable('users')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
+      table
+        .integer('plant_id')
+        .unsigned()
+        .notNullable()
+        .references('plant_id')
+        .inTable('plants')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
+    })  
 }
 
 exports.down = async (knex) => {
   await knex.schema
+   .dropTableIfExists('users_plants')
    .dropTableIfExists('plants')
    .dropTableIfExists('users')
 }
