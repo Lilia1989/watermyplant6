@@ -63,7 +63,7 @@ The following tutorial explains how to set up this project using PostgreSQL and 
 
 * Back End API RESTful Endpoints *
 
-| what you want to do: (request TYPE) http://example.com/api/endpoint |
+ what you want to do: (request TYPE) http://example.com/api/endpoint |
 
 AUTHORIZATION
 login: (POST) request https://watermyplant6.herokuapp.com/api/auth/login

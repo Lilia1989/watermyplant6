@@ -13,7 +13,7 @@ server.use(cors())
 
 
 server.use('/api/auth', authRouter)
-server.use('/api/items', plantsRouter)
+server.use('/api/plants', plantsRouter)
 server.use('/api/users', usersRouter)
 
 
